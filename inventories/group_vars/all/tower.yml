@@ -1,0 +1,25 @@
+---
+tower_instance_list:
+  - ''
+
+<CHANGEME>_tower_host: ''
+<CHANGEME>_tower_verify_ssl: True
+<CHANGEME>_tower_username: ''
+<CHANGEME>_tower_password: ''
+
+# Example
+#
+# tower_instance_list:
+#   - "test"
+#
+# test_tower_host: "example.ansible.tower.host.com"
+# test_tower_verify_ssl: True
+# test_tower_username: "admin"
+# test_tower_password: !vault 
+# |
+#   $ANSIBLE_VAULT;1.1;AES256
+#   65643764316532666461633466313664643165356335353737356361646536306339376439396538
+#   3335373063396330616230393732316238353639346661620a333565336537343363323230643235
+#   30643664383062356463373037633533386436653064323534313065323933643938626230383964
+#   3533333261616138660a376162666430323934316362666262313462636562353539656466306164
+#   3737
