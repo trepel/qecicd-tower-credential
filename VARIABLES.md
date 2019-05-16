@@ -21,6 +21,7 @@ Configuration variables required by the `provisioning_vars.yml.j2` file to provi
 | `cluster_pod_openshift_user`:   | Openshift cluster pod username |
 | `cluster_pod_openshift_pass`:   | Openshift cluster pod password |
 | `cluster_credential_bundle_aws_name`: | AWS cluster credential bundle name |
+| `cluster_type`: | Cluster type. Should be set to 'dev' or 'poc' |
 | `rh_user`: | [Red Hat registry](https://docs.openshift.com/container-platform/3.11/install/configuring_inventory_file.html#advanced-install-configuring-registry-location) username |
 | `rh_pass`: | [Red Hat registry](https://docs.openshift.com/container-platform/3.11/install/configuring_inventory_file.html#advanced-install-configuring-registry-location) password |
 | `dev_domain`: | Domain name to be used for development environments |
