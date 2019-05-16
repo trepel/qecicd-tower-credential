@@ -8,6 +8,8 @@ cluster_pod_openshift_pass: ''
 
 cluster_credential_bundle_aws_name: ''
 
+cluster_type: ''
+
 rh_pool: ''
 
 rh_user: ''
