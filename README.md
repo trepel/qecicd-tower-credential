@@ -10,25 +10,20 @@ This project serves as the inventory source for the [Ansible Tower Configuration
 
 The projects `SAMPLE_CREDENTIAL_CONFIG.yml` file contains a list of variables which need to be changed to suit your own environment. Once these variables have been changed, the `bootstrap.yml` playbook is used to consume this configuration file,encrypt any variables containing sensitive information using the supplied Ansible vault password, and then place each of the variables into the relevant group_vars file.
 
-This project should be forked and made private before proceeding with the following setup steps.
-
 ## Setup
+
+**NOTE**: This project should be forked and made private before proceeding with the following setup steps.
 
 1. Clone this project
 
-     * 
-         ```bash
-         cd <local_projects_directory>
-         ```
-     *
-         ```bash
-         git clone https://github.com/integr8ly/tower_dummy_credentials
-         ```
+```bash
+git clone https://github.com/<forked_repository_org>/tower_dummy_credentials
+```
 
 2. Copy and rename the `SAMPLE_CREDENTIAL_CONFIG.yml` file locally. As the local copy of the config will sensitive information in plaintext, it should only be stored and referenced locally, and caution taken to not check it into a public repository.
 
 ```bash
-cp SAMPLE_CREDENTIAL_CONFIG.yml <path-on-local-machine>/local_credentials_config.yml
+cp SAMPLE_CREDENTIAL_CONFIG.yml local_credentials_config.yml
 ```
 
 3. Change the variable values in the newly created local copy of the `SAMPLE_CREDENTIAL_CONFIG.yml` file. A list of all variables that need to be changed along with their usage can be found [HERE](VARIABLES.md).
@@ -36,7 +31,7 @@ cp SAMPLE_CREDENTIAL_CONFIG.yml <path-on-local-machine>/local_credentials_config
 4. From the projects root directory, run the `bootstrap.yml` playbook, specifying the path to your local copy of the credentials file.
 
 ```bash
-ansible-playbook -i ./inventories/hosts bootstrap.yml --extra-vars='@<path-to-local-credentials-config-file>'
+ansible-playbook -i ./inventories/hosts bootstrap.yml --extra-vars='@local_credentials_config.yml'
 ```
 
 ## Adding new variables
