@@ -67,6 +67,19 @@ Private key to be used with Lets Encrypt.
 | ------ | ----------- | ----------- |
 | `letsencrypt_private_key` | The user generated private key to be used with Lets Encrypt | ✔ |
 
+## send_grid.yml
+
+Send Grid credentials to be used to send a notification email if the Compare Project Variables job template fails.
+
+| Variable | Description | Encrypted |
+| ------ | ----------- | ----------- |
+| `send_grid_user` | The Send Grid user associated with the API key | ✔ |
+| `send_grid_sender` | Sender email address | ✔ |
+| `send_grid_password` | Password associated with the API key | ✔ |
+| `send_grid_host` | Send Grid host |  |
+| `send_grid_port` | Send Grid port number |  |
+| `send_grid_email_recipients` | Email address of the intended recipients, comma separated if more than one recipient |  |
+
 ## tower_github_authentication.yml
 
 Ansible [Social Auth](https://docs.ansible.com/ansible-tower/3.0.2/html/administration/social_auth.html) credentials.

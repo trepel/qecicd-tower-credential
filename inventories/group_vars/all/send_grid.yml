@@ -1,0 +1,13 @@
+---
+send_grid_user: ''
+
+send_grid_sender: ''
+
+send_grid_password: ''
+
+send_grid_host: smtp.sendgrid.net
+
+send_grid_port: 587
+
+# Multiple recipients should be comma separated. i.e. 'admin1@example.com, test2@example.com'
+send_grid_email_recipients: ''
