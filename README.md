@@ -26,9 +26,9 @@ git clone https://github.com/<forked_repository_org>/tower_dummy_credentials
 cp SAMPLE_CREDENTIAL_CONFIG.yml local_credentials_config.yml
 ```
 
-3. Change the variable values in the newly created local copy of the `SAMPLE_CREDENTIAL_CONFIG.yml` file. A list of all variables that need to be changed along with their usage can be found [HERE](VARIABLES.md).
+2. Change the variable values in the newly created local copy of the `local_credentials_config.yml` file. A list of all variables that need to be changed along with their usage can be found [HERE](VARIABLES.md).
 
-4. From the projects root directory, run the `bootstrap.yml` playbook, specifying the path to your local copy of the credentials file.
+3. From the projects root directory, run the `bootstrap.yml` playbook, specifying the path to your local copy of the credentials file.
 
 ```bash
 ansible-playbook -i ./inventories/hosts bootstrap.yml --extra-vars='@local_credentials_config.yml'
@@ -42,7 +42,7 @@ The following steps outline the process of adding new variables to the project.
 
 1. Add the variable to the  `SAMPLE_CREDENTIAL_CONFIG.yml` file with a value of `<CHANGEME>`.
 
-2. add an entry within the `with_items` section of the `encrypt_credentials.yml` task in the `bootstrap_credentials.yml` file, replacing `new_variable` with the name of the new variable.
+2. Add an entry within the `with_items` section of the [bootstrap_credentials.yml](roles/credentials/tasks/bootstrap_credentials.yml#L13-L39) file, replacing `new_variable` with the name of the new variable.
 
 ```bash
  - { name: 'new_variable', value: '{{ new_variable }}' }
@@ -51,9 +51,9 @@ The following steps outline the process of adding new variables to the project.
 3. Add the new variable to the relevant file template located in `roles/credentials/templates` using the below format, ensuring that the variable to substitute in the template has `_enc` appended to the end of the variable name.
 
 ```bash
-'new_variable': !vault
+new_variable: !vault
 |
-{{ 'new_variable_enc' }}
+{{ new_variable_enc }}
  ```
 
  ### Plaintext
