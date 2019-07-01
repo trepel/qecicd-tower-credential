@@ -26,9 +26,9 @@ git clone https://github.com/<forked_repository_org>/tower_dummy_credentials
 cp SAMPLE_CREDENTIAL_CONFIG.yml local_credentials_config.yml
 ```
 
-2. Change the variable values in the newly created local copy of the `local_credentials_config.yml` file. A list of all variables that need to be changed along with their usage can be found [HERE](VARIABLES.md).
+3. Change the variable values in the newly created local copy of the `local_credentials_config.yml` file. A list of all variables that need to be changed along with their usage can be found [HERE](VARIABLES.md).
 
-3. From the projects root directory, run the `bootstrap.yml` playbook, specifying the path to your local copy of the credentials file.
+4. From the projects root directory, run the `bootstrap.yml` playbook, specifying the path to your local copy of the credentials file.
 
 ```bash
 ansible-playbook -i ./inventories/hosts bootstrap.yml --extra-vars='@local_credentials_config.yml'
