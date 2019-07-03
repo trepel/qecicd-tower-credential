@@ -28,7 +28,7 @@ prod_secret_access_key: '<CHANGEME>'
 
 | Variable | Description | Encrypted |
 | ------ | ----------- | ----------- |
-| `aws_credential_list: - "<CHANGEME>"` | AWS credential name list (`dev`, `prod` etc.) |  |
+| `aws_credential_list: - "<CHANGEME>"` | AWS credential name list (`dev`, `prod` etc.) Must be alphanumeric |  |
 | `<aws_environment>_access_key_id: <CHANGEME>` | AWS access key ID, prefixed with the target AWS environment | ✔ |
 | `<aws_environment>_secret_access_key_id: <CHANGEME>` | AWS secret key ID, prefixed with the target AWS environment | ✔ |
 
@@ -129,7 +129,7 @@ prod_tower_password: '<CHANGEME>'
 
 | Variable | Description | Encrypted |
 | ------ | ----------- | ----------- |
-| `tower_instance_list: - "<CHANGEME>"` | List of target Tower instances (`dev`, `prod` etc.) |  |
+| `tower_instance_list: - "<CHANGEME>"` | List of target Tower instances (`dev`, `prod` etc.) Must be alphanumeric |  |
 | `<tower_instance>_tower_host: <CHANGEME>` | The hostname of the Target Ansible Tower instance, prefixed with the target tower instance |  |
 | `<tower_instance>_tower_verify_ssl: <CHANGEME>` | Whether SSL verification is required or not, prefixed with the target tower instance |  |
 | `<tower_instance>_tower_username: <CHANGEME>` | The username of the Target Ansible Tower instance, prefixed with the target tower instance |  |
