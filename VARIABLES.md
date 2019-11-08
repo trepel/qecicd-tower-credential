@@ -15,7 +15,7 @@ Ansible Vault password used to encrypt all of the following variables. This pass
 Credentials of the target AWS accounts to be used when provisioning new clusters. Multiple AWS environments can be supported. The name of each AWS environment must be added to the `aws_credential_list`, and the associated `access_key_id` and `secret_access_key` credentials also specified with the environment name prefixed to each:
 
 ```bash
-aws_credentials_list:
+aws_credential_list:
   - 'dev'
   - 'prod'
 
@@ -69,7 +69,7 @@ Private key to be used with Lets Encrypt.
 
 ## send_grid.yml
 
-Send Grid credentials to be used to send a notification email if the Compare Project Variables job template fails.
+Send Grid credentials to be used to send a notification email if the Compare Project Variables job fails. Can be left blank if not required.
 
 | Variable | Description | Encrypted |
 | ------ | ----------- | ----------- |
@@ -77,7 +77,7 @@ Send Grid credentials to be used to send a notification email if the Compare Pro
 | `send_grid_sender` | Sender email address | ✔ |
 | `send_grid_password` | Password associated with the API key | ✔ |
 | `send_grid_host` | Send Grid host |  |
-| `send_grid_port` | Send Grid port number |  |
+| `send_grid_port` | Send Grid port number. Default is port 587 |  |
 | `send_grid_email_recipients` | Email address of the intended recipients, comma separated if more than one recipient |  |
 
 ## tower_github_authentication.yml
