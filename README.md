@@ -20,12 +20,12 @@ The projects `CREDENTIAL_CONFIG.yml` file contains a list of variables which nee
 git clone https://github.com/<forked_repository_org>/tower_dummy_credentials
 ```
 
-1. Change the variable values in the `CREDENTIALS_CONFIG.yml` file. A list of all variables that need to be changed along with their usage can be found [HERE](VARIABLES.md).
+1. Change the variable values in the `CREDENTIAL_CONFIG.yml` file. A list of all variables that need to be changed along with their usage can be found [HERE](VARIABLES.md).
 
-2. From the projects root directory, run the `bootstrap.yml` playbook, specifying the path to the `CREDENTIALS_CONFIG.yml` file.
+2. From the projects root directory, run the `bootstrap.yml` playbook, specifying the path to the `CREDENTIAL_CONFIG.yml` file.
 
 ```bash
-ansible-playbook -i ./inventories/hosts bootstrap.yml --extra-vars='@CREDENTIALS_CONFIG.yml'
+ansible-playbook -i ./inventories/hosts bootstrap.yml --extra-vars='@CREDENTIAL_CONFIG.yml'
 ```
 
 ## Adding new variables
@@ -36,7 +36,7 @@ The following steps outline the process of adding new variables to the project. 
 
 1. Add the variable to the  `CREDENTIAL_CONFIG.yml` file with a default value of `<CHANGEME>`.
 
-2. Add an entry within the `with_items` section of the [bootstrap_credentials.yml](roles/credentials/tasks/bootstrap_credentials.yml#L13-L39) file, replacing `new_variable` in the both the name and value fields with the name of the new variable.
+2. Add an entry within the `with_items` section of the [bootstrap_credentials.yml](roles/credentials/tasks/bootstrap_credentials.yml#L13) file, replacing `new_variable` in the both the name and value fields with the name of the new variable.
 
 ```bash
  - { name: 'new_variable', value: '{{ new_variable }}' }
@@ -80,8 +80,16 @@ ansible localhost -m debug -a var='<variable-name>' -e '@<path-to-file>' --ask-v
 
 The `bootstrap.yml` playbook can be re-run to update variable values.
 
-1. Decrypt the `CREDENTIALS_CONFIG.yml` file as per [here](#decryption).
+1. Decrypt the `CREDENTIAL_CONFIG.yml` file.
 
-2. Make the required update/s
+```bash
+ansible-vault decrypt 'CREDENTIAL_CONFIG.yml'
+```
 
-3. Re-run the `bootstrap.yml` playbook
+2. Make the required update/s.
+
+3. Re-run the `bootstrap.yml` playbook.
+
+```bash
+ansible-playbook -i ./inventories/hosts bootstrap.yml --extra-vars='@CREDENTIAL_CONFIG.yml'
+```
