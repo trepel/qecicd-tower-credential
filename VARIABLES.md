@@ -118,6 +118,7 @@ Ansible Tower SSH configuration values.
 | Variable | Description | Encrypted |
 | ------ | ----------- | ----------- |
 | `tower_ssh`  | The SSH key to be copied over to the Ansible tower instance | ✔ |
+| `tower_ssh_become_password`  | sudo password for tower username associated with the tower credentials | ✔ |
 | `tower_ssh_user` | The tower username associated with the tower credentials |  |
 
 ## tower_credentials
